@@ -1,13 +1,34 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
-import Mainbody from './components/Mainbody.jsx'
-import Header  from './components/Header.jsx'
+import Mainbody from './pages/Mainbody.jsx'
+import Store from './pages/Store.jsx'
+import BookDetail from './pages/BookDetail.jsx'
+import PreviewBook from './pages/PreviewBook.jsx'
+import Login from './pages/Login.jsx'
+import About from './pages/About.jsx'
+import ContactUs from './pages/ContactUs.jsx'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+
+
 
 const App = () => {
   return (
     <>
-    <Header/>
-    <Mainbody />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Mainbody />} />
+          <Route path='/BookDetail' element={<BookDetail />} />
+          <Route path='/PreviewBook' element={<PreviewBook />} />
+          <Route path='/Store' element={<Store />} />
+          <Route path='/About' element={<About />} />
+          <Route path='/ContactUs' element={<ContactUs />} />
+          <Route path='/Login' element={<Login />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './Carousel.css'; // Make sure to have the corresponding CSS file
+import './css/Slider.css'; // Make sure to have the corresponding CSS file
 import banner1 from "../images/Banner_images/banner1.jpg"
 import banner2 from "../images/Banner_images/banner2.jpg"
 import banner3 from "../images/Banner_images/banner3.jpg"

@@ -1,0 +1,88 @@
+
+.review-inner-boxes {
+    height: 230px;
+    width: 400px;
+    background-color: #cec2a7df;
+    border-radius: 15px;
+    margin: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .review-profile {
+    /* border: 1px solid rgb(255, 255, 255); */
+    height: 30%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: transparent;
+  }
+  
+  .profile-picture {
+    height: 100%;
+    width: 20%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .profile-name-rating {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    justify-content: center;
+  }
+  
+  .profile-name {
+    background: transparent;
+    color: black;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 20px;
+  
+  }
+  
+  .profile-rating {
+    /* border: 1px solid rgb(255, 255, 255); */
+    background: transparent;
+    color: #000000;
+  }
+  
+  .review-text {
+    /* border: 1px solid rgb(255, 255, 255); */
+    height: 50%;
+    width: 70%;
+    background-color: transparent;
+    font-size: medium;
+    margin-left: 20%;
+    overflow: hidden;
+    font-weight: bold;
+    /* align-self:flex-end; */
+    /* background-color: #000000; */
+  
+  }
+  
+  .review-text-submit-buttons {
+    /* border: 1px solid rgb(255, 255, 255); */
+    height: 15%;
+    width: 90%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .review-text-submit-buttons button {
+    padding: 5px 15px;
+    font-size: 18px;
+    border: 1px solid black;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-left: 50px;
+    cursor: pointer;
+    font-weight: bolder;
+    background: linear-gradient(109.6deg, #dbcabce1 11.2%, rgba(255, 153, 1, 0.937) 100.2%);
+  }
