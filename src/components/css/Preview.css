@@ -1,0 +1,75 @@
+/* src/Flipbook.css */
+.flipbook-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #a59a82ae;
+  /* height: 90vh; */
+}
+
+.flipbook {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  /* margin: 0 5px; */
+  height: 97vh;
+  width: 40vw;
+}
+
+.nav-button {
+  background-color: #9d5407e2;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.nav-button:hover:not(:disabled) {
+  background-color: #e6a007;
+  border: 1px solid black;
+}
+
+.left-button {
+  left: 10px;
+}
+
+.right-button {
+  right: 10px;
+}
+
+.fullscreen-button {
+  background: transparent;
+  /* color: white; */
+  border: none;
+  padding: 8px 9px;
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
+  font-size: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: background-color 0.3s;
+}
+
+.fullscreen-button:hover {
+  background-color:#a59a82df;
+  border: none;
+}

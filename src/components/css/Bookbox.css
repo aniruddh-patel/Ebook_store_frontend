@@ -14,18 +14,40 @@
     cursor: pointer;
   
   }
+  .inner-bookbox:hover{
+    padding: 6px 1px;
+    border: 2px solid black;
+    background-color: #cec2a7b9;
+  }
+ 
   
-  .inner-bookbox .Title,
+  .inner-bookbox 
+  .Title,
   .Author,
   .rating {
     border: 1px solid black;
     padding: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
     width: 77%;
     border-radius: 7px;
+    margin-top: 1px;
+    /* text-decoration: none; */
   }
   
   .inner-bookbox img {
     height: 260px;
     width: 180px;
+  }
+  .container{
+    /* height: 300px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 81%;
+    margin-top: 5px;
+  }
+  .container .inner-featured{
+    width: 100%;
   }

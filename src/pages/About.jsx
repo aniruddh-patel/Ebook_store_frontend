@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import '../components/css/About.css'
 import donatelogo from '../images/main_images/donatelogo.png'
@@ -9,6 +10,9 @@ import logo from "../images/icons/logo.png"
 
 
 const About = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     
     const [count, setCount] = useState(1);
     useEffect(() => {
@@ -29,13 +33,13 @@ const About = () => {
 
 
     return (
-        <div className='about-box' id="about">
+        <div className='about-box'>
             <div className='inner-mainbox1'>
                 <img className='right-inner-mainbox1' src={aboutimage} alt="bookart" />
                 <div className='left-inner-mainbox1'>
                     <div className='main-heading'>The antique place for Reading Exploration and Feel "Study <span>Buzz"</span></div>
                     <div className='button-group'>
-                        <button className='button2'>Visit Store</button>
+                        <Link to={{ pathname: '/store', hash: '#top' }}><button className='button2'>Visit Store</button></Link>
                     </div>
                 </div>
             </div>
@@ -55,7 +59,7 @@ const About = () => {
                 </div>
                 <div className='trending-book-box'>
                     <img height={200} src={reviewlogo} alt="bookart" />
-                    <button className='button1'>Comment</button>
+                    <Link to={{ pathname: '/', hash: '#comment' }}><button className='button1'>Comment</button></Link>
                 </div>
 
             </div>

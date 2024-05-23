@@ -233,12 +233,17 @@ p {
 .category-inner-boxes {
   height: 205px;
   width: 300px;
-  background-color: #cec2a7df;
   border-radius: 15px;
-  margin: 5px 5px;
+  margin: 5px 4px;
   cursor: pointer;
 
 }
+.category-inner-boxes:hover{
+  width: 301px;
+  border: 2px solid black;
+
+}
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 .featured-box {
   width: 100%;
@@ -295,7 +300,10 @@ h1 {
   flex-direction: column;
   margin-bottom: 5px;
 }
-
+ .inner-featured a{
+  text-decoration: none;
+  color: #000;
+}
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 .review-box {
   width: 100%;

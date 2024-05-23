@@ -11,10 +11,16 @@ import youngAdult from '../images/Genre_images/youngAdult.jpg'
 import nonfiction from '../images/Genre_images/nonfiction.jpg'
 import scienceandfiction from '../images/Genre_images/scienceandfiction.jpg'
 import mystery from '../images/Genre_images/mystery.jpg'
+import { useEffect } from 'react';
+
 
 const Category = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
-        <div className='category-box'>
+        <div className='category-box' id='top'>
                 <h1>Browse Genres</h1>
                 <div className='inner-featured'>
                     <img className='category-inner-boxes' src={romance} alt='' />

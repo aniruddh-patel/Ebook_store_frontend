@@ -1,0 +1,138 @@
+.bookdetail-container-box {
+    width: 100%;
+    background-color: #faebd7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookdetail-container {
+    width: 81%;
+    height: 630px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookcover-div {
+    width: 400px;
+    height: 500px;
+    margin: 0 2px;
+    border: 2px solid black;
+    display: flex;
+    border-top-left-radius: 60px;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e1c89afd;
+}
+
+.one {
+    height: 90%;
+    width: 80%;
+    /* position: absolute;
+    float: left; */
+    border: 1px solid black;
+}
+
+/* .two {
+    width: 260px;
+    height: 360px;
+    position: absolute;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px solid black;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(240, 240, 240, 0.858);
+} */
+
+.bookinfo-div {
+    width: 700px;
+    height: 500px;
+    margin: 0 2px;
+    border: 2px solid black;
+    border-top-right-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(230, 200, 158, 0.533);
+
+}
+
+.bookname-heading {
+    width: 70%;
+    height: 60px;
+    font-size: 50px;
+    font-weight: bolder;
+    padding-left: 20px;
+    background: transparent;
+    margin-top: 20px;
+}
+
+.authorname-heading {
+    width: 70%;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 20px;
+    background: transparent;
+}
+
+.bookinfo-div-button-div {
+    width: 70%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    background: transparent;
+    margin-top: 20px;
+}
+
+.preview{
+    padding: 5px 10px;
+    font-size: 30px;
+    border: 1px solid black;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bolder;
+    background-color: #d57b04;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.download {
+    padding: 5px 10px;
+    font-size: 30px;
+    border: 1px solid black;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.bookinfo-div-button-div div{
+    display: flex;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+}
+.bookinfo-div-button-div img{
+    height: 30px;
+    padding: 0;
+}
+
+.bookinfo-div-paragraph{
+    height: 300px;
+    width: 70%;
+    padding: 10px 0 10px 20px;
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    background: transparent;
+    margin-top: 20px;
+
+}

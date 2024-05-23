@@ -1,13 +1,20 @@
 import React from 'react'
-import book from '../images/temp_images/book.jpg'
+import { useNavigate } from 'react-router-dom';
+// import notebook from '../images/Placeholder/notebook.png'
 import "./css/Bookbox.css"
-const Bookbox = () => {
+const Bookbox = ({ book }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/bookDetail/${book._id}`);
+  };
+
   return (
-    <div className='inner-bookbox'>
-      <img src={book} alt="art" />
-      <div className='Title'>Title: The end of world</div>
-      <div className='Author'>Author: Rd sharma</div>
-      <div className='rating'>Rating:  00000</div>
+    <div className='inner-bookbox' onClick={handleClick}>
+      <img src={book.bookCoverUrl} alt="art" />
+      <div className='Title'>Title: {book.bookName}</div>
+      <div className='Author'>Author: {book.author}</div>
+      {/* <div className='rating'>Rating:  00000</div> */}
     </div>
 
   )
