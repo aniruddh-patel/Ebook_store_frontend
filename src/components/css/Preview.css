@@ -22,12 +22,10 @@ canvas {
 }
 
 .nav-button {
-  background-color: #9d5407e2;
-  color: rgb(0, 0, 0);
-  border: none;
+  border: .5px solid black;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: large;
   border-radius: 5px;
   transition: background-color 0.3s;
   position: absolute;
@@ -41,8 +39,9 @@ canvas {
 }
 
 .nav-button:hover:not(:disabled) {
-  background-color: #e6a007;
-  border: 1px solid black;
+  background-color: #7f7c89ba;
+  color: white;
+  border: 2px solid black;
 }
 
 .left-button {

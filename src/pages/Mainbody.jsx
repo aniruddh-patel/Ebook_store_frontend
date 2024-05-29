@@ -9,7 +9,7 @@ import Slider from '../components/Slider.jsx'
 import ReviewCard from '../components/ReviewCard.jsx'
 import About from './About.jsx'
 import ReviewWrite from '../components/ReviewWrite.jsx'
-import Category from '../components/Category.jsx'
+// import Category from '../components/Category.jsx'
 
 import mainimage from '../images/main_images/mainimage.png'
 import box1image from "../images/main_images/box1-image.jpg"
@@ -25,11 +25,12 @@ import profile5 from '../images/icons/profile5.png'
 const Mainbody = () => {
     // for api fetch
     const [bookdata, setBookdata] = useState([]);
+    const [quoteData, setQuoteData] = useState({});
     const [topFiveBooks, setTopFiveBooks] = useState([]);
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/v1/books'); // Replace with your API endpoint
+                const response = await fetch('http://localhost:5555/api/v1/books'); // Replace with your API endpoint
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -45,7 +46,6 @@ const Mainbody = () => {
         };
         fetchBooks();
     }, []);
-
     // for getting top 5 book by likes
     useEffect(() => {
         if (bookdata.length > 0) {
@@ -54,6 +54,28 @@ const Mainbody = () => {
             setTopFiveBooks(topFive);
         }
     }, [bookdata]);
+
+    // for quote fetching
+    useEffect(() => {
+        const fetchQuote = async () => {
+            try {
+                const response = await fetch('http://localhost:5555/api/v1/quotes'); // Replace with your API endpoint
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log(data);
+                setQuoteData(data)
+                
+            } 
+            catch (error) {
+                console.error('Error fetching quotes:', error);
+            }
+        };
+        fetchQuote();
+    }, []);
+    
+
     
     // for scrolling to particular part from another page
     const { hash } = useLocation();
@@ -66,6 +88,7 @@ const Mainbody = () => {
             }
         }
     }, [hash]);
+   
 
     return (
         <div className='mainbody'>
@@ -73,10 +96,9 @@ const Mainbody = () => {
                 <div className='inner-mainbox1'>
                     <div className='left-inner-mainbox1'>
                         <div className='main-heading'>Find <hr />yourself in a Great Book..</div>
-                        <div className='quotes-api-box'>Lorem ipslorem44
-                            Lcia. Minus, maxime ducimus! um dolor sit amet consectet\rporis, dolorem!</div>
+                        <div className='quotes-api-box'>{quoteData.quote} <span>~{quoteData.author}</span> </div>
                         <div className='button-group'>
-                            <Link to='/login'><button className='button1'>Get Started</button></Link>
+                            <Link to='/Signin'><button className='button1'>Get Started</button></Link>
                             <Link to='/about'><button className='button2'>Learn More</button></Link>
                         </div>
                     </div>
@@ -107,7 +129,7 @@ const Mainbody = () => {
                     </div>
                 </div>
             </div>
-            <Category />
+            {/* <Category /> */}
             <div className='featured-box' id='trendingbook'>
                 <div className='slider-box'>
                     <Slider />

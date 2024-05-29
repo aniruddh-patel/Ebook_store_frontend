@@ -46,8 +46,8 @@ hr {
 }
 
 .quotes-api-box {
-  height: 10%;
-  width: 90;
+  min-height: 5%;
+  width: 90%;
   padding: 10px 2px;
   overflow: hidden;
   font-weight: 500;

@@ -1,14 +1,12 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist/webpack';
 import '../components/css/Preview.css';
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
-
-// const Flipbook = ({ pdfUrl }) => {
 const Flipbook = () => {
   const location = useLocation();
   const { pdfUrl } = location.state;
@@ -17,7 +15,14 @@ const Flipbook = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const canvasRefs = useRef([]);
+  const renderTasks = useRef([]);
   const flipbookRef = useRef(null);
+
+  // Clean up function to cancel ongoing tasks
+  const cancelRenderTasks = useCallback(() => {
+    renderTasks.current.forEach(task => task.cancel());
+    renderTasks.current = [];
+  }, []);
 
   useEffect(() => {
     const loadPdf = async () => {
@@ -34,10 +39,17 @@ const Flipbook = () => {
     };
 
     loadPdf();
-  }, [pdfUrl]);
+
+    return () => {
+      // Clean up when the component unmounts or when pdfUrl changes
+      cancelRenderTasks();
+    };
+  }, [pdfUrl, cancelRenderTasks]);
 
   useEffect(() => {
     const renderPage = async (page, canvas) => {
+      if (!canvas) return;
+
       const viewport = page.getViewport({ scale: 1.5 });
       const context = canvas.getContext('2d');
 
@@ -55,10 +67,26 @@ const Flipbook = () => {
         viewport: viewport,
       };
 
-      await page.render(renderContext).promise;
+      const renderTask = page.render(renderContext);
+      renderTasks.current.push(renderTask);
+
+      try {
+        await renderTask.promise;
+      } catch (error) {
+        if (error.name === 'RenderingCancelledException') {
+          console.log('Rendering cancelled', page.pageNumber);
+        } else {
+          throw error;
+        }
+      } finally {
+        renderTasks.current = renderTasks.current.filter(task => task !== renderTask);
+      }
     };
 
     const renderCurrentPages = () => {
+      // Cancel any ongoing render tasks
+      cancelRenderTasks();
+
       const startIndex = currentPage * 2;
       const endIndex = startIndex + 2;
       const pagesToRender = pages.slice(startIndex, endIndex);
@@ -71,8 +99,10 @@ const Flipbook = () => {
       });
     };
 
-    renderCurrentPages();
-  }, [pages, currentPage]);
+    if (pages.length > 0) {
+      renderCurrentPages();
+    }
+  }, [pages, currentPage, cancelRenderTasks]);
 
   const nextPage = () => {
     if ((currentPage + 1) * 2 < numPages) {

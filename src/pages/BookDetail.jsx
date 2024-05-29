@@ -1,20 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import '../components/css/BookDetail.css'
 import downloadicon from '../images/icons/downloadicon.png'
 import bookicon from '../images/icons/bookicon.png'
-import placeholder from '../images/Placeholder/notebook.png'
-// import Bookbox from '../components/Bookbox.jsx'
+import { Context } from '..';
+import { toast } from 'react-toastify';
+
 
 const BookDetail = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
   const navigate = useNavigate();
+  const { isauthenticated } = useContext(Context)
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/books/${id}`);
+        const response = await fetch(`http://localhost:5555/api/v1/books/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -37,8 +39,17 @@ const BookDetail = () => {
   }
 
   const handleReadOnline = () => {
+    if(!isauthenticated){
+      toast.info("Login First",{
+        hideProgressBar: true,
+      });
+      navigate('/signin');
+      return;
+    }
     navigate('/previewBook', { state: { pdfUrl: item.pdfUrl } });
   };
+
+  
   return (
     <div className='bookdetail-container-box'>
       <div className='bookdetail-container'>
@@ -56,21 +67,17 @@ const BookDetail = () => {
           <div className='bookinfo-div-paragraph'>{item.bookSummary}</div>
         </div>
       </div>
-      {/* <div className='container'>
-        <h1>Recommended books</h1>
-        <div className='inner-featured'>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-          <Link to="/bookDetail"><Bookbox /></Link>
-        </div>
-      </div> */}
     </div>
   )
 }
 
 export default BookDetail
+
+
+
+
+
+
+
+
+

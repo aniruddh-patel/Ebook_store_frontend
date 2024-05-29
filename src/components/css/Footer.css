@@ -66,6 +66,10 @@
     margin: 0 15px;
     background: transparent;
   }
+  .followlink a :hover{
+    filter: invert(90%);
+    height: 40px;
+  }
   
   .followlink a {
     background: none;

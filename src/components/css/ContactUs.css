@@ -1,0 +1,192 @@
+.contactus-main-box {
+    width: 100%;
+    background-color: #faebd7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactus-inner-box {
+    width: 81%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactus-heading {
+    font-size: 70px;
+    font-weight: bolder;
+    /* text-decoration: underline #d57b04; */
+    /* background-color: turquoise; */
+    padding-left: 60px;
+    margin-top: 20px;
+}
+
+.contactus-heading span {
+    color: #d57b04;
+    background: transparent;
+}
+
+.contactus-form-div {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    height: 650px;
+    /* background-color: #d504bd; */
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 40px;
+    justify-content: center;
+}
+
+.contactus-form {
+    width: 40%;
+    height: 100%;
+    /* background: #a10d0d; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contactus-form h2 {
+    padding: 20px 0;
+    font-size: 50px;
+    /* font-weight: ; */
+}
+
+.contactus-form form {
+    background: transparent;
+    width: 90%;
+    /* margin-left: 30px; */
+}
+
+.contactus-form label,
+input {
+    display: block;
+
+}
+
+.contactus-form label {
+    font-weight: bold;
+    height: 25px;
+    width: 100%;
+    background: none;
+}
+
+.contactus-form input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    font-size: medium;
+    padding-left: 10px;
+}
+
+#message {
+    height: 150px;
+    padding-left: 10px;
+    font-size: medium;
+    text-align: justify;
+    padding-left: 10px;
+
+}
+
+.contactus-form button {
+    padding: 8px 15px;
+    font-size: 18px;
+    border: 1px solid black;
+    color: #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #d57b04;
+}
+
+.contactus-info {
+    width: 50%;
+    height: 100%;
+    /* background-color: rgb(183, 183, 10); */
+}
+.contactus-info img{
+    background: transparent;
+    height: 99%;
+    padding-right: 50px;
+}
+
+
+.contactus-faqs {
+    height: auto;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 40px;
+    padding-bottom: 30px;
+}
+.contactus-faqs h2{
+    text-align: center;
+    display: inline-block;
+    width: 60%;
+    background: transparent;
+    margin: 20px 0;
+    font-size: 50px;
+}
+
+
+.contactus-privacy-div {
+    height: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 40px;
+    padding-bottom: 30px;
+}
+.cookies-policy{
+    width: 95%;
+    background: transparent;
+}
+.cookies-policy h1{
+    width: 100%;
+    font-size: 50px;
+    background:transparent;
+    padding: 20px 0;
+}
+.cookies-policy h2,p ,ul,li,strong{
+    /* font-size: 50px; */
+    background:transparent;
+}
+.cookies-policy h2{
+    padding-top: 10px;
+}
+
+.contactus-policy-div {
+    height: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 40px;
+    padding-bottom: 30px;
+    /* background-color: tomato; */
+}
+.terms-of-use{
+    width: 95%;
+    background: transparent;
+}
+.terms-of-use h1{
+    width: 100%;
+    font-size: 50px;
+    background:transparent;
+    padding: 20px 0;
+}
+.terms-of-use h2,p ,ul,li,strong{
+    /* font-size: 50px; */
+    background:transparent;
+}
