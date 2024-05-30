@@ -52,7 +52,7 @@ const Signin = () => {
           <form onSubmit={submithandler}>
           <input type="email" placeholder="Email" value={email} required onChange={(e) => setEmail(e.target.value)} />
             <input type="password" placeholder="Password" value={password} required onChange={(e) => setPassword(e.target.value)} />
-            <button disabled={loading} type="submitt">Login</button>
+            <button disabled={loading} type="submit">Login</button>
             <h3>or</h3>
             <Link to="/Signup">Sign up</Link>
           </form>

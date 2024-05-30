@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './css/Footer.css'
 import instagram from '../images/icons/instagram.png'
 import twitter from '../images/icons/twitter.png'
@@ -27,7 +28,7 @@ const Footer = () => {
                         <li><a href="#Legal Notices">Report Complaint</a></li>
                         <li><a href="#Only on Netflix">Only on StudyBuzz</a></li>
                         <li><a href="#Only on Netflix">Donate</a></li>
-                        <li><a href="#Only on Netflix">Add Book</a></li>
+                        <li><Link to='/newbook'>Add Book</Link></li>
                     </ul>
                     <div className='weblogo'>
                         <img src={logo} alt="" />

@@ -5,6 +5,7 @@ import Mainbody from './pages/Mainbody.jsx'
 import Store from './pages/Store.jsx'
 import BookDetail from './pages/BookDetail.jsx'
 import PreviewBook from './pages/PreviewBook.jsx'
+import Addbook from './pages/AddBook.jsx'
 import Signup from './pages/Signup.jsx'
 import Signin from './pages/Signin.jsx'
 import About from './pages/About.jsx'
@@ -41,6 +42,7 @@ const App = () => {
           <Route path='/contactUs' element={<ContactUs />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/newbook' element={<Addbook/>} />
         </Routes>
         <Footer />
       </Router>
