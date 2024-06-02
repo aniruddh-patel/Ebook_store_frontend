@@ -6,6 +6,13 @@ import donatelogo from '../images/main_images/donatelogo.png'
 import reviewlogo from '../images/main_images/reviewlogo.png'
 import aboutimage from '../images/main_images/aboutimage.png'
 import logo from "../images/icons/logo.png"
+import profile1 from '../images/icons/profile1.png'
+import profile2 from '../images/icons/profile2.png'
+import profile3 from '../images/icons/profile3.png'
+import profile4 from '../images/icons/profile4.png'
+import profile5 from '../images/icons/profile5.png'
+import ReviewCard from '../components/ReviewCard.jsx'
+
 
 
 
@@ -33,6 +40,7 @@ const About = () => {
 
 
     return (
+        <div>
         <div className='about-box'>
             <div className='inner-mainbox1'>
                 <img className='right-inner-mainbox1' src={aboutimage} alt="bookart" />
@@ -59,11 +67,24 @@ const About = () => {
                 </div>
                 <div className='trending-book-box'>
                     <img height={200} src={reviewlogo} alt="bookart" />
-                    <Link to={{ pathname: '/', hash: '#comment' }}><button className='button1'>Comment</button></Link>
+                    <button className='button1'>Comment</button>
                 </div>
 
             </div>
         </div>
+        <div className='review-box'>
+                <div className='inner-featured'>
+                    <ReviewCard profileimage={profile1} />
+                    <ReviewCard profileimage={profile2} />
+                    <ReviewCard profileimage={profile3} />
+                    <ReviewCard profileimage={profile4} />
+                    <ReviewCard profileimage={profile5} />
+                    <ReviewCard profileimage={profile1} />
+                    
+                </div>
+            </div>
+        </div>
+        
     )
 }
 

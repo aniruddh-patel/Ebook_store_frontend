@@ -1,11 +1,37 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import '../components/css/ContactUs.css'
 import Accordion from '../components/Accordion.jsx'
 import contactus from '../images/main_images/contactus.png'
+import {toast} from 'react-toastify'
+import axios from 'axios'
 
 
 const ContactUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+  const [formData, setFormData] = useState({
+    FullName: '',
+    Email: '',
+    ContactNumber: '',
+    Message: ''
+  });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5555/contact/new', formData);
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setFormData({ FullName: '', Email: '', ContactNumber: '', Message: '' });
+      } else {
+        toast.error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending contact form:', error);
+      toast.error('Error sending message');
+    }
+  };
   const items = [
     {
       title: 'Are the PDFs really free?',
@@ -35,16 +61,41 @@ const ContactUs = () => {
         <div className='contactus-form-div'>
           <div className='contactus-form'>
             <h2>Contact Us</h2>
-            <form action="">
-              <label htmlFor="">Full Name*</label>
-              <input type="text" /><br />
-              <label htmlFor="">Email address*</label>
-              <input type="mail" /><br />
-              <label htmlFor="">Contact Number*</label>
-              <input type="text" /><br />
-              <label htmlFor="">Message*</label>
-              <input id='message' type="text" /><br />
-              <button>Send Message</button>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="FullName">Full Name*</label>
+              <input
+                type="text"
+                name="FullName"
+                value={formData.FullName}
+                onChange={(e) => setFormData({ ...formData, FullName: e.target.value })}
+                required
+              /><br />
+              <label htmlFor="Email">Email address*</label>
+              <input
+                type="email"
+                name="Email"
+                value={formData.Email}
+                onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
+                required
+              /><br />
+              <label htmlFor="ContactNumber">Contact Number*</label>
+              <input
+                type="text"
+                name="ContactNumber"
+                value={formData.ContactNumber}
+                onChange={(e) => setFormData({ ...formData, ContactNumber: e.target.value })}
+                required
+              /><br />
+              <label htmlFor="Message">Message*</label>
+              <input
+                id='message'
+                type="text"
+                name="Message"
+                value={formData.Message}
+                onChange={(e) => setFormData({ ...formData, Message: e.target.value })}
+                required
+              /><br />
+              <button type="submit">Send Message</button>
             </form>
           </div>
           <div className='contactus-info'>

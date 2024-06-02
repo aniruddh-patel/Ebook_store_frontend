@@ -27,7 +27,7 @@ const App = () => {
       setUser({})
       setIsauthenticated(false)
     })
-  },[])
+  })
 
   return (
     <>

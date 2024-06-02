@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import notebook from '../images/Placeholder/notebook.png'
-import "./css/Bookbox.css"
+import notebook from '../images/Placeholder/notebook.png';
+import "./css/Bookbox.css";
+
 const Bookbox = ({ book }) => {
   const navigate = useNavigate();
 
@@ -11,13 +12,11 @@ const Bookbox = ({ book }) => {
 
   return (
     <div className='inner-bookbox' onClick={handleClick}>
-      <img src={book.bookCoverUrl || {notebook}} alt="art" />
+      <img src={book.bookCoverUrl || notebook} alt="art" />
       <div className='Title'>Title: {book.bookName}</div>
       <div className='Author'>Author: {book.author}</div>
-      {/* <div className='rating'>Rating:  00000</div> */}
     </div>
-
-  )
-}
+  );
+};
 
 export default Bookbox;

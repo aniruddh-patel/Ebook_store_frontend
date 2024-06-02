@@ -14,20 +14,20 @@ const Footer = () => {
             <div className='inner-footer-box'>
                 <div className='links'>
                     <ul>
-                        <li><a href="#FAQ">FAQ</a></li>
-                        <li><a href="#Help Centre">Help Centre</a></li>
-                        <li><a href="#Account">Account</a></li>
-                        <li><a href="#Media Centre">Ebook Store</a></li>
-                        <li><a href="#Jobs">Jobs</a></li>
-                        <li><a href="#Terms of Use">Terms of Use</a></li>
-                        <li><a href="#Privacy">Privacy</a></li>
-                        <li><a href="#Cookies Prefernces">Cookies Prefernces</a></li>
-                        <li><a href="#Corporate Information">About us </a></li>
-                        <li><a href="#Speed Test">Browse Genre</a></li>
-                        <li><a href="#Contact Us">Contact Us</a></li>
-                        <li><a href="#Legal Notices">Report Complaint</a></li>
-                        <li><a href="#Only on Netflix">Only on StudyBuzz</a></li>
-                        <li><a href="#Only on Netflix">Donate</a></li>
+                        <li><Link to="/contactUs">FAQ</Link></li>
+                        <li><Link to="/contactUs">Help Centre</Link></li>
+                        <li><Link to="/signup">Account</Link></li>
+                        <li><Link to="/store">Ebook Store</Link></li>
+                        <li><Link to="#Jobs">Jobs</Link></li>
+                        <li><Link to="/contactUs">Terms of Use</Link></li>
+                        <li><Link to="/contactUs">Privacy</Link></li>
+                        <li><Link to="/contactUs">Cookies Prefernces</Link></li>
+                        <li><Link to="/about">About us </Link></li>
+                        <li><Link to="/store">Browse Genre</Link></li>
+                        <li><Link to="/contactUs">Contact Us</Link></li>
+                        <li><Link to="/contactUs">Report Complaint</Link></li>
+                        <li><Link to="/store">Only on StudyBuzz</Link></li>
+                        <li><Link to="#Only on Netflix">Donate</Link></li>
                         <li><Link to='/newbook'>Add Book</Link></li>
                     </ul>
                     <div className='weblogo'>

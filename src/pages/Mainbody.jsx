@@ -1,26 +1,20 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 
 import Bookbox from '../components/Bookbox.jsx'
 import Slider from '../components/Slider.jsx'
-import ReviewCard from '../components/ReviewCard.jsx'
 import About from './About.jsx'
-import ReviewWrite from '../components/ReviewWrite.jsx'
-// import Category from '../components/Category.jsx'
 
 import mainimage from '../images/main_images/mainimage.png'
 import box1image from "../images/main_images/box1-image.jpg"
 import box2image from '../images/main_images/box2-image.jpg'
 import box3image from '../images/main_images/box3-image.jpg'
 
-import profile1 from '../images/icons/profile1.png'
-import profile2 from '../images/icons/profile2.png'
-import profile3 from '../images/icons/profile3.png'
-import profile4 from '../images/icons/profile4.png'
-import profile5 from '../images/icons/profile5.png'
 
 const Mainbody = () => {
     // for api fetch
@@ -39,7 +33,7 @@ const Mainbody = () => {
                     console.log(data)
                     setBookdata(data.books);
                 }
-            } 
+            }
             catch (error) {
                 console.error('Error fetching books:', error);
             }
@@ -66,17 +60,17 @@ const Mainbody = () => {
                 const data = await response.json();
                 console.log(data);
                 setQuoteData(data)
-                
-            } 
+
+            }
             catch (error) {
                 console.error('Error fetching quotes:', error);
             }
         };
         fetchQuote();
     }, []);
-    
 
-    
+
+
     // for scrolling to particular part from another page
     const { hash } = useLocation();
     useEffect(() => {
@@ -88,7 +82,26 @@ const Mainbody = () => {
             }
         }
     }, [hash]);
-   
+
+
+// for search book
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+    const handleSearch = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5555/api/v1/books/search/book?title=${query}`);
+            if (response.data) {
+                navigate(`/bookDetail/${response.data._id}`);
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 404) {
+                toast.error('Book not found');
+            } else {
+                toast.error('An error occurred');
+            }
+        }
+    };
+
 
     return (
         <div className='mainbody'>
@@ -105,10 +118,15 @@ const Mainbody = () => {
                     <img className='right-inner-mainbox1' src={mainimage} alt="bookart" />
                 </div>
                 <div className='inner-mainbox2'>
-                    <form action="" className='search'>
-                        <input type="text" placeholder='Search Book' />
-                        <button>Find</button>
-                    </form>
+                    <div className='search'>
+                        <input
+                            type="text"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            placeholder="Search for a book..."
+                        />
+                        <button onClick={handleSearch}>Find</button>
+                    </div>
                 </div>
                 <div className='inner-mainbox3'>
                     <div className='trending-book-box'>
@@ -123,13 +141,12 @@ const Mainbody = () => {
                     </div>
                     <div className='new-arrival-book-box'>
                         <div className='boxx2'><h2>New Arrival Books...</h2><p>See latest collection of this month.</p>
-                            <a href="#newCollectionbook" behavior="smooth" ><button className='button2'>Explore</button></a>
+                            <a href="#newCollectionbook" ><button className='button2'>Explore</button></a>
                         </div>
                         <img className='boxx1' src={box3image} alt="bookart" />
                     </div>
                 </div>
             </div>
-            {/* <Category /> */}
             <div className='featured-box' id='trendingbook'>
                 <div className='slider-box'>
                     <Slider />
@@ -138,7 +155,7 @@ const Mainbody = () => {
                 <div className='inner-featured'>
                     {topFiveBooks.map((book) => (
                         <Bookbox key={book._id} book={book} />
-                    ))} 
+                    ))}
                 </div>
             </div>
             <div className='new-arrival-box' id='newCollectionbook'>
@@ -150,18 +167,6 @@ const Mainbody = () => {
                 </div>
             </div>
             <About />
-            <div className='review-box'>
-                <div className='inner-featured'>
-                    <ReviewCard profileimage={profile1} />
-                    <ReviewCard profileimage={profile2} />
-                    <ReviewCard profileimage={profile3} />
-                    <ReviewCard profileimage={profile4} />
-                    <ReviewCard profileimage={profile5} />
-                    <div className='review-inner-boxes' id='comment'>
-                        <ReviewWrite />
-                    </div>
-                </div>
-            </div>
         </div >
     )
 }

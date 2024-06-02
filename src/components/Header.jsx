@@ -16,15 +16,11 @@ const Header = () => {
         withCredentials: true,
       }
       )
-      toast.success("Logged out Successfully", {
-        hideProgressBar: true,
-      });
+      toast.success("Logged out Successfully");
       setIsauthenticated(false)
       setLoading(false)
     } catch (error) {
-      toast.error('error' ,{
-        hideProgressBar: true,
-      });
+      toast.error('error');
       setIsauthenticated(true)
       setLoading(false)
     }

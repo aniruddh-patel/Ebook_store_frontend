@@ -56,7 +56,7 @@ const AddBook = () => {
             toast.success(res.data.message)
         } catch (err) {
             console.error(err);
-            toast.error("Not Successfully")
+            toast.error("Not Successfull")
         }
     };
 

@@ -40,9 +40,7 @@ const BookDetail = () => {
 
   const handleReadOnline = () => {
     if(!isauthenticated){
-      toast.info("Login First",{
-        hideProgressBar: true,
-      });
+      toast.info("Login First");
       navigate('/signin');
       return;
     }
