@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import '../components/css/About.css'
 import donatelogo from '../images/main_images/donatelogo.png'
 import reviewlogo from '../images/main_images/reviewlogo.png'
+import downarrow from '../images/main_images/down-arrow.png'
 import aboutimage from '../images/main_images/aboutimage.png'
 import logo from "../images/icons/logo.png"
 import profile1 from '../images/icons/profile1.png'
@@ -21,19 +22,17 @@ const About = () => {
         window.scrollTo(0, 0);
     }, []);
     
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(161);
     useEffect(() => {
         const interval = setInterval(() => {
-            if (count < 40000) {
-                setCount(count + 99);
-            }else if (count > 40000 && count<50000) {
-                setCount(count + 19);
+            if (count < 1000) {
+                setCount(count + 1);
             }
              else {
-                setCount(50000);
+                setCount(1000);
                 clearInterval(interval);
             }
-        }, 70); // Adjust the interval for the scrolling speed
+        }, Math.floor(Math.random() * 3000)); // Adjust the interval for the scrolling speed
 
         return () => clearInterval(interval);
     }, [count]);
@@ -63,11 +62,11 @@ const About = () => {
 
                 <div className='store-box'>
                     <img height={200} src={donatelogo} alt="bookart" />
-                    <button className='button1'>Support US</button>
+                    <Link to="/contactUs" className='button1'>Support US</Link>
                 </div>
                 <div className='trending-book-box'>
                     <img height={200} src={reviewlogo} alt="bookart" />
-                    <button className='button1'>Comment</button>
+                    <img height={70} src={downarrow} alt="bookart" />
                 </div>
 
             </div>

@@ -74,7 +74,7 @@ input {
     background: none;
 }
 
-.contactus-form input {
+.contactus-form input,textarea {
     height: 40px;
     width: 100%;
     outline: none;

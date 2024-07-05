@@ -27,8 +27,8 @@ const Footer = () => {
                         <li><Link to="/contactUs">Contact Us</Link></li>
                         <li><Link to="/contactUs">Report Complaint</Link></li>
                         <li><Link to="/store">Only on StudyBuzz</Link></li>
-                        <li><Link to="#Only on Netflix">Donate</Link></li>
-                        <li><Link to='/newbook'>Add Book</Link></li>
+                        <li><Link to="/contactUs">Donate</Link></li>
+                        <li><a href='http://localhost:5555/admin' target='blank' >Add Book</a></li>
                     </ul>
                     <div className='weblogo'>
                         <img src={logo} alt="" />
