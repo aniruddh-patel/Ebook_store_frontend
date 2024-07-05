@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify'
 import axios from 'axios';
 import '../components/css/Addbook.css'
+import { apiDomain } from '../config';
 
 const AddBook = () => {
     useEffect(() => {
@@ -38,7 +39,7 @@ const AddBook = () => {
 
      
         try {
-            const res = await axios.post('http://localhost:5555/api/v1/books/new', formData, {
+            const res = await axios.post(`${apiDomain}/api/v1/books/new`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

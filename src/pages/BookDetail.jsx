@@ -5,6 +5,7 @@ import downloadicon from '../images/icons/downloadicon.png'
 import bookicon from '../images/icons/bookicon.png'
 import { Context } from '..';
 import { toast } from 'react-toastify';
+import { apiDomain } from '../config';
 
 
 const BookDetail = () => {
@@ -16,7 +17,7 @@ const BookDetail = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await fetch(`http://localhost:5555/api/v1/books/${id}`);
+        const response = await fetch(`${apiDomain}/api/v1/books/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

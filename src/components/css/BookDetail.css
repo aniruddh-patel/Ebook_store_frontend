@@ -15,12 +15,12 @@
 }
 
 .bookcover-div {
-    width: 400px;
+    width: 350px;
     height: 500px;
     margin: 0 2px;
     border: 2px solid black;
     display: flex;
-    border-top-left-radius: 60px;
+    /* border-top-left-radius: 60px; */
 
     align-items: center;
     justify-content: center;
@@ -51,10 +51,11 @@
 
 .bookinfo-div {
     width: 700px;
-    height: 500px;
+    min-height: 500px;
     margin: 0 2px;
     border: 2px solid black;
     border-top-right-radius: 60px;
+    border-bottom-right-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;

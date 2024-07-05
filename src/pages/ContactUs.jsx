@@ -4,6 +4,7 @@ import Accordion from '../components/Accordion.jsx'
 import contactus from '../images/main_images/contactus.png'
 import {toast} from 'react-toastify'
 import axios from 'axios'
+import { apiDomain } from '../config';
 
 
 const ContactUs = () => {
@@ -20,7 +21,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5555/contact/new', formData);
+      const response = await axios.post(`${apiDomain}/contact/new`, formData);
       if (response.data.success) {
         toast.success(response.data.message);
         setFormData({ FullName: '', Email: '', ContactNumber: '', Message: '' });

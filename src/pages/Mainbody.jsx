@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { apiDomain } from '../config';
 
 
 import Bookbox from '../components/Bookbox.jsx'
@@ -24,7 +25,7 @@ const Mainbody = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await fetch('http://localhost:5555/api/v1/books'); // Replace with your API endpoint
+                const response = await fetch(`${apiDomain}/api/v1/books`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -53,7 +54,7 @@ const Mainbody = () => {
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const response = await fetch('http://localhost:5555/api/v1/quotes'); // Replace with your API endpoint
+                const response = await fetch(`${apiDomain}/api/v1/quotes`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -89,7 +90,7 @@ const Mainbody = () => {
     const navigate = useNavigate();
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:5555/api/v1/books/search/book?title=${query}`);
+            const response = await axios.get(`${apiDomain}/api/v1/books/search/book?title=${query}`);
             if (response.data) {
                 navigate(`/bookDetail/${response.data._id}`);
             }
@@ -109,7 +110,7 @@ const Mainbody = () => {
                 <div className='inner-mainbox1'>
                     <div className='left-inner-mainbox1'>
                         <div className='main-heading'>Find <hr />yourself in a Great Book..</div>
-                        <div className='quotes-api-box'>{quoteData.quote} <span>~{quoteData.author}</span> </div>
+                        <div className='quotes-api-box'>{quoteData.statement} <span>~{quoteData.author}</span> </div>
                         <div className='button-group'>
                             <Link to='/Signin'><button className='button1'>Get Started</button></Link>
                             <Link to='/about'><button className='button2'>Learn More</button></Link>

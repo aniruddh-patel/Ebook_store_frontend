@@ -14,11 +14,12 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import axios from 'axios'
 import { Context } from './index.js'
+import { apiDomain } from './config';
 const App = () => {
   const { setIsauthenticated,setUser } = useContext(Context)
 
   useEffect(()=>{
-    axios.get("http://localhost:5555/user/me",{
+    axios.get(`${apiDomain}/user/me`,{
       withCredentials:true
     }).then(res=>{
       setUser(res.data.user)
@@ -27,7 +28,7 @@ const App = () => {
       setUser({})
       setIsauthenticated(false)
     })
-  })
+  },[setIsauthenticated, setUser])
 
   return (
     <>

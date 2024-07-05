@@ -5,6 +5,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { Context } from '..';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { apiDomain } from '../config';
 
 
 const Signin = () => {
@@ -15,7 +16,7 @@ const Signin = () => {
     e.preventDefault();
     setLoading(true)
     try {
-      const { data } = await axios.post("http://localhost:5555/user/signin",
+      const { data } = await axios.post(`${apiDomain}/user/signin`,
         {
           email, password,
         },

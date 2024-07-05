@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Category from '../components/Category.jsx';
 import Bookbox from '../components/Bookbox.jsx';
+import { apiDomain } from '../config';
+
 
 const Store = () => {
   const [books, setBooks] = useState([]);
@@ -14,17 +16,25 @@ const Store = () => {
 
   const fetchRandomBooks = async () => {
     try {
-      const response = await axios.get('http://localhost:5555/api/v1/books/random');
-      setBooks(response.data.books);
-    } catch (error) {
-      console.error('Error fetching random books:', error);
-    }
+      const response = await fetch(`${apiDomain}/api/v1/books`);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      if (data.success) {
+          console.log(data)
+          setBooks(data.books);
+      }
+  }
+  catch (error) {
+      console.error('Error fetching books:', error);
+  }
   };
 
   const fetchBooksByCategory = async (category) => {
     setSelectedCategory(category);
     try {
-      const response = await axios.get(`http://localhost:5555/api/v1/books/category/${category}`);
+      const response = await axios.get(`${apiDomain}/api/v1/books/category/${category}`);
       setBooks(response.data.books);
       document.getElementById('book-cards').scrollIntoView({ behavior: 'smooth' });
     } catch (error) {

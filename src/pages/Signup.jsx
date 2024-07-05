@@ -5,6 +5,8 @@ import '../components/css/Signin.css';
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios'
 import { Context } from '..';
+import { apiDomain } from '../config';
+
 
 
 const Signup = () => {
@@ -18,7 +20,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true)
     try {
-      const { data } = await axios.post("http://localhost:5555/user/signup",
+      const { data } = await axios.post(`${apiDomain}/user/signup`,
         {
           name, email, password,
         },
